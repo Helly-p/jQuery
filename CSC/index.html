@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cascading Menus</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <br>
+    <h2 align="center">Cascading Menus</h2>
+    <br>
+    <div class="row">
+        <div class="col-3">
+            <label for="country">Country : </label>
+            <select name="country" id="country" class="form-select">
+                <option value="" selected disabled>Select Country</option>
+                <option value="India">India</option>
+                <option value="Russia">Russia</option>
+                <option value="America">America</option>
+                <option value="Iceland">Iceland</option>
+            </select>
+        </div>
+
+        <div class="col-3">
+            <label for="state">State : </label>
+            <select name="state" id="state" disabled title="Please Select Country First." class="form-select">
+                <option value="" selected disabled>Select State</option>
+            </select>
+        </div>
+
+        <div class="col-3">
+            <label for="city">City : </label>
+            <select name="city" id="city" title="Please Select State First." disabled class="form-select">
+                <option value="" selected disabled>Select City</option>
+            </select>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
