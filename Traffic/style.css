@@ -1,0 +1,61 @@
+*{
+    box-sizing: border-box;
+    padding: 0%;
+}
+
+#first_light,#third_light,#second_light,#fourth_light {
+    background-color: black;
+    min-width: 95px;
+    min-height: 330px;
+    display: block;
+    padding: 0.5%;
+}
+.center{
+    display: flex;
+    justify-content: center;
+}
+.second{
+    display: flex;
+    justify-content: left;
+}
+.fourth{
+    display: flex;
+    justify-content: right;
+}
+#first_light {
+    max-width: 200px;
+}
+
+.red{
+    /* background-color: red; */
+    background-color: grey;
+    margin: 8% 0%;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+.yellow{
+    /* background-color: yellow; */
+    background-color: grey;
+    margin: 8% 0%;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+.green{
+    /* background-color: green; */
+    background-color: grey;
+    margin: 8% 0%;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+#first_light > .green {
+    background-color: green;
+}
+
+#second_light > .red, #third_light > .red, #fourth_light > .red {
+    background-color: red;
+}
+

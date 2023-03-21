@@ -20,6 +20,7 @@ $(document).ready(function(){
         let flag = 0;
         $('#state').removeAttr('disabled');
         $('#state').empty();
+        $('#city').empty();
         let states = '<option selected disabled>Select State</option>';
         for (const country in country_state) {  
 
@@ -44,7 +45,7 @@ $(document).ready(function(){
 
         $('#city').removeAttr('disabled');
         $('#city').empty();
-        let cities = '<option selected disabled>Select State</option>';
+        let cities = '<option selected disabled>Select City</option>';
         for (const state in state_city) {  
 
             if(state == selected_state){
