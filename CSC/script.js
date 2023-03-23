@@ -14,7 +14,6 @@ const state_city = {
 }
 
 $(document).ready(function(){
-
     $('#country').on("change",function(){
         const selected_country = $("#country").find(':selected').val();
         let flag = 0;
