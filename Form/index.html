@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script src="./validation/dist/jquery.validate.js"></script>
+</head>
+
+<body>
+    <section>
+
+        <form action="" id="form">
+
+            <label for="name">Full name</label>
+            <input type="text" name="name" id="name" required>
+
+            <br>
+            <br>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+
+            <br>
+            <br>
+            <label for="office">Office :</label>
+            <textarea type="text" name="office" id="office" rows="2" required></textarea>
+
+            <br>
+            <br>
+            <label for="gender">Gender :</label>
+            <input type="radio" id="female" name="gender" value="Female" required>
+            <label for="female">Female</label>
+            <input type="radio" id="male" name="gender" value="Male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="other" name="gender" value="Other" required>
+            <label for="other">Other</label>
+
+            <br>
+            <br>
+            <label for="bloodgrp">Blood Group :</label>
+            <select name="bloodgrp" id="bloodgrp" required>
+                <option value="" selected disabled>Select</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+
+            <br>
+            <br>
+            <div class="hobby">
+                <label for="hobby">Hobbies :</label>
+                <input type="checkbox" id="hobby1" name="hobby" value="Boxing">
+                <label for="hobby1">Boxing</label>
+                <input type="checkbox" id="hobby2" name="hobby" value="Dancing">
+                <label for="hobby2">Dancing</label>
+                <input type="checkbox" id="hobby3" name="hobby" value="Eating">
+                <label for="hobby3" id="hobby">Eating</label>
+            </div>
+
+            <br>
+            <br>
+            <label for="dob">Date of birth :</label>
+            <input type="date" name="dob" id="dob" max="2005-12-31" required>
+
+            <br>
+            <br>
+            <input type="submit" value="SUbmit">
+        </form>
+    </section>
+    <script>
+        $(document).ready(function () {
+            // $('#form').hide()
+
+            function temp() {
+                alert("Hello");
+            }
+            // $('#form').submit().on("click",temp());
+
+            $('#form').validate({
+                rules: {
+                    name: {
+                        required: true,
+                        minlength: 10,
+                        maxlength: 10
+                    },
+                    hobby: {
+                        // required: '#hobby1:checked',
+                        required: true,
+                        minlength: 2,
+                        // equalsTo: "name"
+                    },
+                    email: {
+                        required: true,
+                        gmail: true
+                    },
+                    dob: {
+                        dateValidation: true
+                    },
+                    gender: {
+                        required: true
+                    },
+                },
+                messages: {
+                    name: {
+                        required: "Enter name",
+                        minlength: "Length 10"
+                    },
+                    hobby: {
+                        required: "PLease select hobby1"
+                    },
+                },
+                errorPlacement:
+                    function (error, element) {
+                        if (element.is(":checkbox")) {
+                            error.insertAfter('#hobby');
+                        }//For checkbox
+                        else {
+                            error.insertAfter(element);
+                        } //For other elements
+                    }
+            });
+
+            jQuery.validator.addMethod("gmail", function (value, element) {
+                let pattern = "^.+@gmail.com$";
+                return this.optional(element) || pattern.match(value);
+            }, "ONly gmail account is allowed");
+
+            jQuery.validator.addMethod("dateValidation", (value) => {
+                let date = new Date(value);
+                let month = date.getMonth() + 1;
+
+                if (month % 2 != 0) {
+                    return 1;
+                }
+
+            }, "Only odd month allowed")
+
+        })
+
+    </script>
+</body>
+
+</html>
